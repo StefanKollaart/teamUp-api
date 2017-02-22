@@ -16,10 +16,10 @@ module.exports = function() {
   };
 
   // Initialize our service with any options it requires
-  app.use('/pair', service(options));
+  app.use('/pairs', service(options));
 
   // Get our initialize service to that we can bind hooks
-  const pairService = app.service('/pair');
+  const pairService = app.service('/pairs');
 
   // Set up our before hooks
   pairService.before(hooks.before);
