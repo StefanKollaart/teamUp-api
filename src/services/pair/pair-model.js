@@ -8,10 +8,18 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+function onlyDate() {
+  var dateObject = new Date();
+  var day = dateObject.getDate();
+  var month = dateObject.getMonth() + 1;
+  var year = dateObject.getFullYear();
+  console.log(year + "-" + month + "-" + day);
+  return year + "-" + month + "-" + day;
+}
+
 const pairSchema = new Schema({
   students: [ Schema.Types.ObjectId ],
-  createdAt: { type: Date, 'default': Date.now },
-  updatedAt: { type: Date, 'default': Date.now },
+  date: { type: String, 'default': onlyDate() },
 });
 
 const pairModel = mongoose.model('pair', pairSchema);
