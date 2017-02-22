@@ -12,7 +12,7 @@ const app = feathers()
 
 
 const userService = app.service('users');
-const classDaysService = app.service('classDays');
+const pairService = app.service('pair');
 
 const user = {
   name: 'Stefan Kollaart',
@@ -21,26 +21,25 @@ const user = {
   admin: true,
 }
 
-const classDays = {
-  pairs: [
+const pair = {
+  students: [
     {}
   ]
 }
 
 userService.create(user)
   .then((result) => {
-    console.log('User created');
 
     app.authenticate({
       type: 'local',
       email: user.email,
       password: user.password,
     }).then((result) => {
-      classDaysService.create(Object.assign({}, classDays, {token:result.token} ))
+      pairService.create(Object.assign({}, pair, {token:result.token} ))
         .then((result) => {
-          console.log("classDay seeded...");
+          console.log("pair seeded...");
         }).catch((error) => {
-          console.error("Error seeding classDay", error)
+          console.error("Error seeding pair", error)
         });
       }).catch((error) => {
     console.error('Error authenticating!', error);

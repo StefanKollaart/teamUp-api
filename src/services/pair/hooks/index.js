@@ -8,10 +8,11 @@ const common = require('feathers-hooks-common');
 const assignMatch = function(options) {
   return function(hook){
     const user = hook.params.user;
-    hook.data.pairs.students = [];
-    hook.data.pairs[0].students = user._id;
+    hook.data.students = user._id;
   }
 }
+
+const populateMatch = common.populate('students', {service: 'users', field: 'students'})
 
 exports.before = {
   all: [],
@@ -41,7 +42,9 @@ exports.before = {
 };
 
 exports.after = {
-  all: [],
+  all: [
+    populateMatch,
+  ],
   find: [],
   get: [],
   create: [],
