@@ -1,0 +1,12 @@
+{
+  "host": "localhost",
+  "port": 3030,
+  "mongodb": "mongodb://localhost:27017/teamUpApi",
+  "public": "../public/",
+  "auth": {
+    "token": {
+      "secret": "AY2qnWPXMdUvxeR6M4vrIMbUDAbhs4Fl7TW859iwZGjD9RkUnBSxBAhBhpmcuOC3hQUsOTPJtxmT8euYR0SDZQ=="
+    },
+    "local": {}
+  }
+}
