@@ -9,7 +9,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const pairSchema = new Schema({
-  students: [ Schema.Types.ObjectId ],
+  students: [{ type: Schema.Types.ObjectId, ref: 'user' }],
 });
 
 const pairModel = mongoose.model('pair', pairSchema);

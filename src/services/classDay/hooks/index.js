@@ -8,6 +8,7 @@ const common = require('feathers-hooks-common');
 
 const populateallStudents = common.populate('allStudents', {service: 'users'})
 const populatepickableStudents = common.populate('pickableStudents', {service: 'users'})
+const populatePairs = common.populate('pairs', {service: 'pairs'})
 
 exports.before = {
   all: [],
@@ -39,6 +40,7 @@ exports.after = {
   all: [
     populatepickableStudents,
     populateallStudents,
+    populatePairs,
   ],
   find: [],
   get: [],
